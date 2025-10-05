@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Javin Arora | Machine Learning Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(120deg, #f6eaf5 0%, #e3eeff 100%);
+      color: #273246;
+    }
+    header, nav, main, footer {
+      max-width: 920px;
+      margin: auto;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 0 1rem;
+      background: #0f3460;
+      color: #fff;
+      border-radius: 0 0 22px 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo img {
+      border-radius: 50%;
+      border: 4px solid #e94560;
+      width: 62px;
+      height: 62px;
+      object-fit: cover;
+      box-shadow: 0 2px 10px rgba(233,69,96,0.3);
+    }
+    .logo span {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    nav {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: flex-end;
+      padding-bottom: 1rem;
+      background: transparent;
+    }
+    nav a {
+      color: #e4e4e4;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.24s;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      color: #e94560;
+      text-decoration: underline;
+    }
+    
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: #16213e;
+      border-radius: 18px;
+      margin-top: 2.2rem;
+      padding: 2.2rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.4);
+      position: relative;
+      min-height: 280px;
+    }
+    .hero-text {
+      flex: 2;
+      min-width: 260px;
+    }
+    .hero-text h1 {
+      margin: 0 0 0.5em 0;
+      font-size: 2.2rem;
+      color: #e4e4e4;
+    }
+    .hero-text h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #e94560;
+      margin-bottom: 1.2em;
+    }
+    .hero-gif img {
+      width: 130px;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(233,69,96,0.3);
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.9rem 2.2rem;
+      background: #e94560;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(233,69,96,0.4);
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: background 0.22s;
+    }
+    .cta-button:hover {
+      background: #d63651;
+    }
+    
+    .about-section {
+      display: flex;
+      gap: 2.2rem;
+      background: #1a1a2e;
+      margin-top: 2.7rem;
+      padding: 2.2rem;
+      border-radius: 16px;
+      align-items: flex-start;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    }
+    .profile-pic {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #e94560;
+      box-shadow: 0 3px 18px rgba(233,69,96,0.3);
+      margin-bottom: 1rem;
+    }
+    .about-details {
+      flex: 1;
+      min-width: 230px;
+    }
+    .about-details h2 {
+      margin-top: 0;
+      font-size: 1.45rem;
+      color: #e4e4e4;
+    }
+    .about-details p {
+      margin-top: 0.9em;
+      line-height: 1.8;
+      color: #c4c4c4;
+    }
+    .about-gif-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.1em;
+      align-items: center;
+    }
+    .about-gif-row img {
+      border-radius: 8px;
+      width: 66px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 0.6rem 1.4rem;
+      margin-top: 1.2em;
+      list-style: none;
+      padding: 0;
+    }
+    .skills-list li {
+      padding: 0.2em 0.8em;
+      background: #0f3460;
+      border-radius: 7px;
+      margin-bottom: 0.3em;
+      font-weight: 500;
+      color: #e94560;
+    }
+   
+    .projects-section {
+      margin-top: 2.6rem;
+      background: #16213e;
+      padding: 2.2rem;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    }
+    .projects-section h2 {
+      margin-top: 0;
+      color: #e4e4e4;
+      font-size: 1.38rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.15rem;
+      margin-top: 1.1em;
+    }
+    .card {
+      background: #1a1a2e;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      padding: 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border: 2px solid #0f3460;
+    }
+    .card img {
+      width: 100%;
+      max-height: 120px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 0.5em;
+    }
+    .tech-stack {
+      font-size: 0.95em;
+      color: #e94560;
+      margin-bottom: 0.3em;
+    }
+   
+    .contact-section {
+      margin-top: 2rem;
+      background: #1a1a2e;
+      padding: 1.7rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    .contact-section h2 {
+      margin-top: 0;
+      font-size: 1.23rem;
+      color: #e4e4e4;
+    }
+    .contact-list {
+      list-style: none;
+      padding: 1em 0 0 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+    .contact-list li {
+      font-size: 1.02em;
+      padding: 0.2em 0.7em;
+      color: #c4c4c4;
+    }
+    .contact-gif img {
+      width: 70px;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      margin-top: 0.8em;
+    }
+    
+    footer {
+      margin-top: 3rem;
+      background: #0f3460;
+      color: #e4e4e4;
+      text-align: center;
+      padding: 1.1rem 0 1.3rem 0;
+      border-radius: 18px 18px 0 0;
+      box-shadow: 0 -2px 24px rgba(0,0,0,0.3);
+      font-size: 1.05rem;
+    }
+    .footer-social {
+      margin-top: 0.7em;
+      display: flex;
+      justify-content: center;
+      gap: 1.1em;
+      margin-bottom: 0.6em;
+    }
+    .footer-social a {
+      color: #e94560;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+    .pliz{
+      color: #c4c4c4;
+    }
+    
+    @media (max-width: 700px) {
+      header, nav, main, footer,
+      .hero, .about-section, .projects-section, .contact-section {
+        max-width: 98vw;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      .hero, .about-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.4em;
+      }
+      .hero-gif img,
+      .profile-pic {
+        margin-bottom: 1rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+  <header>
+    <div class="logo">
+      <img src="https://github.com/javinarora05/Portfolio/blob/main/port1.jpg?raw=true" alt="Javin Arora Photo">
+      <span>Javin Arora</span>
+    </div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h1>Hello, I'm Javin Arora</h1>
+      <h2>Machine Learning & Data Science Enthusiast</h2>
+      <p class="pliz">
+        Turning data into stories, insights, and delightful solutions. Passionate about building smart systems, collaborating, and always finding the fun in the journey.
+      </p>
+      <a href="#projects" class="cta-button">View My Work</a>
+    </div>
+    <div class="hero-gif">
+      <img src="https://media.giphy.com/media/jkSvCVEXWlOla/giphy.gif" alt="Funny handshake">
+    </div>
+  </section>
+  
+  <section class="about-section" id="about">
+    <img src="https://github.com/javinarora05/Portfolio/blob/main/port2.jpg?raw=true" class="profile-pic" alt="Javin Arora Photo">
+    <div class="about-details">
+      <h2>About Me</h2>
+      <p>
+        Energetic, extroverted, and a machine learning devotee, I enjoy making data dance and algorithms work their magic. My school days were filled with badminton rallies and football matches, teaching me strategy and teamwork. When not experimenting on datasets, I dive into competitive gaming—Valorant, Clash Royale, and Clash of Clans keep my tactics sharp. I thrive in lively conversations and am always eager to connect, express new ideas, or simply share a laugh.
+      </p>
+      <div class="skills-list">
+        <li>Adaptive Machine Learning</li>
+        <li>Data Science Projects & Pipelines</li>
+        <li>Python, sklearn, pandas</li>
+        <li>Visualization & Stats</li>
+        <li>Teamwork & Communication</li>
+        <li>Problem-Solving & Debugging</li>
+      </div>
+      <div class="about-gif-row">
+        <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" alt="Thumbs up">
+        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Funny professional face">
+        <img src="https://media.giphy.com/media/ZEU9ryYGwVQXK/giphy.gif" alt="Celebration">
+      </div>
+    </div>
+  </section>
+  
+  <section class="projects-section" id="projects">
+    <h2>Projects / Work Showcase</h2>
+    <div style="text-align: center; padding: 3rem 1rem;">
+      <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Loading" style="width: 200px; border-radius: 12px; margin-bottom: 1.5rem;">
+      <h3 style="color: #e94560; font-size: 1.8rem; margin-bottom: 1rem;">Projects Currently Under Construction 🚧</h3>
+      <p style="font-size: 1.1rem; color: #c4c4c4; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+        My amazing projects are being crafted with love, caffeine, and a sprinkle of procrastination. 
+        They'll be here soon... probably... maybe... eventually!
+      </p>
+      <p style="margin-top: 1.5rem; font-style: italic; color: #888;">
+        (Translation: I'm still learning and building cool stuff. Check back later!)
+      </p>
+    </div>
+  </section>
+  
+  <section class="contact-section" id="contact">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li>Email: javinarora@email.com</li>
+      <li>LinkedIn: <a href= "https://www.linkedin.com/in/javin-arora-66009a376/" target="_blank">https://www.linkedin.com/in/javin-arora-66009a376/</a></li>
+      <li>GitHub: <a href="https://github.com/javinarora05" target="_blank">https://github.com/javinarora05</a></li>
+    </ul>
+    <div class="contact-gif">
+      <img src="https://media.giphy.com/media/tXL4FHPSnVJ0A/giphy.gif" alt="Call me gif">
+    </div>
+  </section>
+  
+  <footer>
+    &copy; 2025 Javin Arora | Powered by HTML, CSS, and lots of positive energy!
+    <div class="footer-social">
+      <a href="#"><span>&#128279;</span></a>
+      <a href="#"><span>&#128231;</span></a>
+      <a href="#"><span>&#128187;</span></a>
+    </div>
+  </footer>
+</body>
+</html>
